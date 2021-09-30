@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -26,9 +25,18 @@ public class Professor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(nullable = false) 
-	private String name;
+	private String nome;
 	private BigDecimal salario;
 	@Enumerated(EnumType.STRING)
 	private StatusProfessor statusProfessor;
+	
+	public Professor(String nome, BigDecimal salario, StatusProfessor statusProfessor) {
+		super();
+		this.nome = nome;
+		this.salario = salario;
+		this.statusProfessor = statusProfessor;
+	}
+
+
 
 }

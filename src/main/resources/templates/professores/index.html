@@ -11,7 +11,40 @@
     <title>Lista de Professores</title>
   </head>
   <body>
-    <h1>Lista de Professores!</h1>
+    
+    <div class="container">
+      <div class="row">
+        <h1>Lista de Professores!</h1>
+      </div>
+
+      <div class="row"> 
+        <div class="col-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Salário</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody> 
+              <tr th:each="professor : ${professores}">
+                <th class="col-1" scope="row" th:text="${professor.getId()}">1</th>
+                <th class="col-4" th:text="${professor.nome}">Nome do Professor</th>
+                <th class="col-2" th:text="${professor.salario}">Salário</th>
+                <th class="col-2" th:text="${professor.statusProfessor.toString()}">STATUS</th>
+                <th class="col-1"><a href="#">Detalhes</a></th>
+                <th class="col-1"><a href="#">Editar</a></th>
+                <th class="col-1"><a href="#">Deletar</a></th>
+              </tr>
+            </tbody>  
+          </table>
+         </div> 
+      </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
